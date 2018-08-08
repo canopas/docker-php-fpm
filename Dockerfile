@@ -5,8 +5,8 @@ FROM php:7-fpm
 ## (change apt-get to yum if you use an RPM-based image)
 ##
 RUN apt-get update -y && apt-get install openssh-client -y
-RUN apt-get install wget
-RUN apt-get install php7.2-gd
+RUN apt-get install wget -y
+RUN apt-get install php7.2-gd -y
 
 RUN docker-php-ext-configure gd \
       --with-gd \
