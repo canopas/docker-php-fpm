@@ -6,7 +6,7 @@ FROM php:7-fpm
 ##
 RUN apt-get update -y && apt-get install openssh-client -y
 RUN apt-get install wget
-RUN apt-get install php7.1-gd
+RUN apt-get install php7.2-gd
 
 RUN docker-php-ext-configure gd \
       --with-gd \
