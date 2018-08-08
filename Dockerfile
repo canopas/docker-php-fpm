@@ -6,10 +6,6 @@ FROM php:7-fpm
 ##
 RUN apt-get update -y && apt-get install openssh-client -y
 
-# Install PHP extensions
-RUN docker-php-ext-install mbstring mcrypt pdo_pgsql pdo_mysql curl json intl gd xml zip bz2 opcache
-
 # Install & enable Xdebug for code coverage reports
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
-
