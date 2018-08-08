@@ -7,6 +7,12 @@ FROM php:7-fpm
 RUN apt-get update -y && apt-get install openssh-client -y
 RUN apt-get install wget gd-dev
 
+RUN docker-php-ext-configure gd \
+      --with-gd \
+      --with-freetype-dir=/usr/include/ \
+      --with-png-dir=/usr/include/ \
+      --with-jpeg-dir=/usr/include/
+
 # Install & enable Xdebug for code coverage reports
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
