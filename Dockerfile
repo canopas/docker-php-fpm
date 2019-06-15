@@ -14,7 +14,7 @@ RUN apt-get update -y && apt-get install openssh-client -y && apt-get install li
 RUN docker-php-ext-install mbstring mcrypt pdo_pgsql pdo_mysql curl json intl gd xml zip bz2 opcache
 
 # Install & enable Xdebug for code coverage reports
-RUN pecl install xdebug && pecl install mongodb
+RUN pecl install xdebug && pecl install mongodb && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/mongo.ini
 RUN docker-php-ext-enable xdebug
 
 RUN EXPECTED_COMPOSER_SIGNATURE=$(wget -q -O - https://composer.github.io/installer.sig) && \
